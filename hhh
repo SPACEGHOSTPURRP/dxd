@@ -1,4 +1,4 @@
-local paste = "https://raw.githubusercontent.com/CMD-X/CMD-X/master/projetcs/InGameFlingForTB"
+local paste = "https://raw.githubusercontent.com/SPACEGHOSTPURRP/dxd/main/hhh"
 local message = "FZ0777 AND AQUA1920 ONTOP | MONKEY MONKEY | FORZA IS MY SON :D"
 if not game:IsLoaded() then game.Loaded:wait() end
 
