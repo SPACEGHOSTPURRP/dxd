@@ -68,10 +68,8 @@ tool.Parent = lpc
 
 tool:GetPropertyChangedSignal("Parent"):Connect(function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,-495,0)
-   end)
-		end
-	end
-end)
+  end)
+	end)
 
 for _ = 1,7 do
     event:FireServer(message, "All")
