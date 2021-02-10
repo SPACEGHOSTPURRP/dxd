@@ -1,15 +1,12 @@
-local paste = "https://raw.githubusercontent.com/SPACEGHOSTPURRP/dxd/main/hhhg"
+local paste = "https://raw.githubusercontent.com/SPACEGHOSTPURRP/dxd/main/hhh"
 local message = "FZ0777 AND AQUA1920 ONTOP | MONKEYGAMING8543 DA BEST | HAIL MONKEYGAMING :D"
 if not game:IsLoaded() then game.Loaded:wait() end
-
 local rand = Random.new()
 local plr = game:GetService("Players").LocalPlayer
 local cmdlp = plr
 local event = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest")
-
 local function newserver()
     syn.queue_on_teleport("loadstring(game:HttpGetAsync(\""..paste.."\"))()")
-
     local servers = {}
     for _ = 1,100 do
         for _ = 1,3 do
@@ -38,65 +35,6 @@ local function newserver()
 end
 wait(2)
 
-
-
-pcall(function()
-    function noclip()
-    	Clip = false
-    	function NoclipLoop()
-    		if Clip == false and game:GetService("Players").LocalPlayer.Character ~= nil then
-    			for _, child in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
-    				if child:IsA("BasePart") and child.CanCollide == true then
-    					child.CanCollide = false
-    				end
-    			end
-    		end
-    	end
-    	Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
-    end
-
-    noclip()
-   local lp,lpc = game.Players.LocalPlayer,game.Players.LocalPlayer.Character
-local camera = workspace.Camera
-
-local clonedHumanoid = lpc.Humanoid:Clone()
-lpc.Humanoid:Destroy()
-clonedHumanoid.Parent = lpc
-
-camera.CameraSubject = clonedHumanoid
-
-local tool = lp.Backpack.BoomBox
-tool.Parent = lpc
-
-tool:GetPropertyChangedSignal("Parent"):Connect(function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,-495,0)
-  end)
-	end)
-
-for _ = 1,7 do
-    event:FireServer(message, "All")
-end
-
-pcall(function()
-    for _,v in pairs(game:GetService("Players"):GetPlayers()) do
-        if v.Character.Humanoid.SeatPart == nil and v.Character:FindFirstChild("HumanoidRootPart") then
-            BT.AngularVelocity = Vector3.new(0,9e9,0)
-            cmdlp.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame
-            wait(.4)
-            BT.AngularVelocity = Vector3.new(0,0,0)
-            wait(.4)
-        end
-    end
-end)
-
-for _,p in pairs(game:GetService("Players"):GetPlayers()) do
-    if p ~= plr then
-        for _ = 1,7 do
-            event:FireServer("/w "..p.Name.." "..message, "All")
-        end
-    end
-end
-
 char = game:GetService('Players').LocalPlayer.Character
 game:GetService('Players').LocalPlayer.CharacterAdded:connect(function(body)
 char = body end)
@@ -111,4 +49,57 @@ end)
 end)
 
 
+
+pcall(function()
+    function noclip()
+    	Clip = false
+    	function NoclipLoop()
+    		if Clip == false and game:GetService("Players").LocalPlayer.Character ~= nil then
+    			for _, child in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+    				if child:IsA("BasePart") and child.CanCollide == true then
+    					child.CanCollide = true
+    				end
+    			end
+    		end
+    	end
+    	Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
+    end
+    noclip()
+   local lp,lpc = game.Players.LocalPlayer,game.Players.LocalPlayer.Character
+local camera = workspace.Camera
+local clonedHumanoid = lpc.Humanoid:Clone()
+lpc.Humanoid:Destroy()
+clonedHumanoid.Parent = lpc
+camera.CameraSubject = clonedHumanoid
+local tool = lp.Backpack.BoomBox
+tool.Parent = lpc
+tool:GetPropertyChangedSignal("Parent"):Connect(function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,-495,0)
+  end)
+	end)
+for _ = 1,7 do
+    event:FireServer(message, "All")
+end
+pcall(function()
+    for _,v in pairs(game:GetService("Players"):GetPlayers()) do
+        if v.Character.Humanoid.SeatPart == nil and v.Character:FindFirstChild("HumanoidRootPart") then
+            BT.AngularVelocity = Vector3.new(0,9e9,0)
+            cmdlp.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame
+            wait(.4)
+            BT.AngularVelocity = Vector3.new(0,0,0)
+            wait(.4)
+        end
+    end
+end)
+for _,p in pairs(game:GetService("Players"):GetPlayers()) do
+    if p ~= plr then
+        for _ = 1,7 do
+            event:FireServer("/w "..p.Name.." "..message, "All")
+        end
+    end
+end
+pcall(function() cmdlp.Character.HumanoidRootPart.CFrame = game:GetService("Players"):GetPlayers()[math.random(1,#game:GetService("Players"):GetPlayers())].Character.HumanoidRootPart.CFrame end)
+wait(2)
+pcall(function() cmdlp.Character.HumanoidRootPart.CFrame = game:GetService("Players"):GetPlayers()[math.random(1,#game:GetService("Players"):GetPlayers())].Character.HumanoidRootPart.CFrame end)
+wait(2)
 newserver()
