@@ -45,7 +45,7 @@ pcall(function()
     		if Clip == false and game:GetService("Players").LocalPlayer.Character ~= nil then
     			for _, child in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
     				if child:IsA("BasePart") and child.CanCollide == true then
-    					child.CanCollide = false
+    					child.CanCollide = true
     				end
     			end
     		end
@@ -76,9 +76,9 @@ pcall(function()
         if v.Character.Humanoid.SeatPart == nil and v.Character:FindFirstChild("HumanoidRootPart") then
             BT.AngularVelocity = Vector3.new(0,9e9,0)
             cmdlp.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame
-            wait(.5)
+            wait(.4)
             BT.AngularVelocity = Vector3.new(0,0,0)
-            wait(.5)
+            wait(.4)
         end
     end
 end)
