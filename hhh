@@ -38,19 +38,6 @@ local function newserver()
 end
 wait(2)
 
-char = game:GetService('Players').LocalPlayer.Character
-game:GetService('Players').LocalPlayer.CharacterAdded:connect(function(body)
-char = body end)
-for i,v in pairs(workspace:GetDescendants()) do
-if v:IsA('Tool') then
-char.Humanoid:EquipTool(v) end end
-workspace.DescendantAdded:connect(function(item)
-pcall(function()
-if item:IsA('Tool') then wait() char.Humanoid:EquipTool(item) 
-end 
-end) 
-end)
-
 
 
 pcall(function()
@@ -109,5 +96,19 @@ for _,p in pairs(game:GetService("Players"):GetPlayers()) do
         end
     end
 end
+
+char = game:GetService('Players').LocalPlayer.Character
+game:GetService('Players').LocalPlayer.CharacterAdded:connect(function(body)
+char = body end)
+for i,v in pairs(workspace:GetDescendants()) do
+if v:IsA('Tool') then
+char.Humanoid:EquipTool(v) end end
+workspace.DescendantAdded:connect(function(item)
+pcall(function()
+if item:IsA('Tool') then wait() char.Humanoid:EquipTool(item) 
+end 
+end) 
+end)
+
 
 newserver()
