@@ -45,7 +45,7 @@ pcall(function()
     		if Clip == false and game:GetService("Players").LocalPlayer.Character ~= nil then
     			for _, child in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
     				if child:IsA("BasePart") and child.CanCollide == true then
-    					child.CanCollide = true
+    					child.CanCollide = false
     				end
     			end
     		end
@@ -54,15 +54,21 @@ pcall(function()
     end
 
     noclip()
-    workspace.CurrentCamera.CameraSubject = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-    local BT = Instance.new("BodyAngularVelocity")
-    BT.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-    BT.AngularVelocity = Vector3.new(0,0,0)
-	BT.MaxTorque = Vector3.new(0,311111,0)
-	BT.P = math.huge
-	for _, child in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
-		if child:IsA("BasePart") then
-			child.CustomPhysicalProperties = PhysicalProperties.new(2, 0.3, 0.5)
+   local lp,lpc = game.Players.LocalPlayer,game.Players.LocalPlayer.Character
+local camera = workspace.Camera
+
+local clonedHumanoid = lpc.Humanoid:Clone()
+lpc.Humanoid:Destroy()
+clonedHumanoid.Parent = lpc
+
+camera.CameraSubject = clonedHumanoid
+
+local tool = lp.Backpack.BoomBox
+tool.Parent = lpc
+
+tool:GetPropertyChangedSignal("Parent"):Connect(function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,-495,0)
+   end)
 		end
 	end
 end)
